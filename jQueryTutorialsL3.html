@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryTutorials</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <!-- <script src="bower_components/modernizr/modernizr.js"> </script> -->
+</head>
+  
+  <style>
+    .jumbotron {
+      /*color: red;*/
+      text-align: center;
+    }
+    /*p {
+      display: inline;
+    }*/
+    .panel {
+      display: none;
+    }
+  </style>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 >Let's have fun!</h1>
+      <!-- <button id="btn1">#btn1</button> -->
+      <!-- <button id="btn1" data-panel="panel1">#btn1</button> -->
+      <button class="panel-button" data-panelid="panel1">#btn1</button>
+      <button class="panel-button" data-panelid="panel2">#btn2</button>
+      <button class="panel-button" data-panelid="panel3">#btn3</button>
+      <button class="panel-button" data-panelid="panel4">#btn4</button>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel1">
+          <div class="panel-heading">
+            #panel1
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel2">
+          <div class="panel-heading">
+            #panel2
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel3">
+          <div class="panel-heading">
+            #panel3
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+          <div class="panel panel-primary" id="panel4">
+            <div class="panel-heading">
+              #panel4
+            </div>
+            <div class="panel-body">
+              content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src=”bower_components/jquery/jquery.js”></script> -->
+  <script src=".\jquery-3.1.1.min.js"></script> 
+
+  <script type="text/javascript">
+    // $().docment.ready( function () {
+    $( function () {
+      // Beginning code:
+      // $("#btn1").on('click', function () {
+      //   $('#panel1').toggle();
+      // });
+      // $("#btn2").on('click', function () {
+      //   $('#panel2').toggle();
+      // });
+      // $("#btn3").on('click', function () {
+      //   $('#panel3').toggle();
+      // });
+      // $("#btn4").on('click', function () {
+      //   $('#panel4').toggle();
+      // });
+      //=====================================================================
+      // Target by attributes - making own attributes:
+      // <button ... data-panel="panel1">#btn1</button>
+      // In browser console: $('button[data-panel=panel1]');
+      // => [<button id=​"btn1" data-panel=​"panel1">​#btn1​</button>​]
+      // Change to <button class="panel-button" data-panelid="panel1">#btn1</button>
+      // Found the button.
+      // New DRY code:
+      var content = "New content for 'this' panel";
+      $('.panel-button').on('click', function () {
+        var panelId = $(this).attr('data-panelid');
+        // alert(panelId); // For tesing before going on.
+        // console.log('#' + panelId);
+        $('#' + panelId).toggle(); // 4:52
+        $('#' + panelId + ' .panel-body').html(content); 
+      });
+    });
+  </script>
+</body>
+</html>
