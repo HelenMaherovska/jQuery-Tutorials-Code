@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryTutorials</title>
+</head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <style>
+    .jumbotron {
+      /*color: red;*/
+      text-align: center;
+    }
+    /*p {
+      display: inline;
+    }*/
+  </style>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 >Let's have fun!</h1>
+      <button id="btn1">#btn1</button>
+      <button id="btn2">#btn2</button>
+      <button id="btn3">#btn3</button>
+      <button id="btn4">#btn4</button>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel1">
+          <div class="panel-heading">
+            #panel1
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel2">
+          <div class="panel-heading">
+            #panel2
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="panel panel-primary" id="panel3">
+          <div class="panel-heading">
+            #panel3
+          </div>
+          <div class="panel-body">
+            content
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+          <div class="panel panel-primary" id="panel4">
+            <div class="panel-heading">
+              #panel4
+            </div>
+            <div class="panel-body">
+              content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src=”bower_components/jquery/jquery.js”></script> -->
+  <script src=".\jquery-3.1.1.min.js"></script> 
+
+  <script type="text/javascript">
+    // $().docment.ready( function () {
+    $( function () {
+      $("#panel1").hide(3000).show(2000);
+      $("#panel2").slideUp(2000).delay(500).slideDown(1000);
+      $("#panel3").fadeToggle(3000).delay(500).fadeToggle(4000);
+      $("#panel4").css({opacity: 0.5})
+      .delay(3000).fadeOut(1000)
+      // .css({opacity: 1.0}) // overrides previous opacity immediatly.
+      .fadeIn(2000);
+    });
+  </script>
+</body>
+</html>
