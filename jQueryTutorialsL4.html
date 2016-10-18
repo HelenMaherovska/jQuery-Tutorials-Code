@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryTutorials</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <style>
+    .special {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list">
+    <li>one</li>
+    <li class="special">two</li>
+    <li>three</li>
+    <li>sublist: Click each list item to hide it.<br>
+        Click here to show all hidden list items.
+      <ul class="sublist">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+       </ul> 
+    </li>
+  </ul>
+  
+  <script src=".\jquery-3.1.1.min.js"></script> 
+  <script type="text/javascript">
+    $( function () {
+      // DOM Traversal
+      // console: $('li'); $('li').first(); $('li').last(); 
+      // $('li').first().hide(); $('li').first().show(); 
+      // $('li').eq(0); $('li').eq(1); 
+      // $('ul:first').children(); Note: only the first decendants.
+      // $('li:first').siblings(); Same thing.
+      // $('li:first').parent(); ~ same thing.
+      // $('li').eq(4); 
+      //    $('li').eq(4).parent(); $('li').eq(4).parent().parent(); 
+      //    $('li').eq(4).parent().parent().parent(); 
+      // $('li').eq(4).parent().parent().prev(); // previous sibling 
+      // $('li').eq(4).parent().parent().prev().prev();
+      // $('li').eq(4).parent().parent().prev().prev().next();//Next sibling.
+      // $('li').first().next();
+      // $('li').eq(1); Same thing.
+
+      // // Beginning new code:
+      // $('li').on('click', function () {
+      //   $(this).next().hide();
+      // });
+      //========================================
+      // $('li').on('click', function () {
+      //   $(this).next().remove();
+      // });
+      //========================================
+      // $('li').on('click', function () {//click on 2 removes one, etc. Why?
+      //   $(this).siblings().remove();
+      // });
+      //========================================
+      // siblings looks like ancestors and descendants as well?
+      // $('li').on('click', function () {
+      //   $(this).siblings().addClass('special');
+      // });
+      //========================================
+      // $('li').on('click', function () {
+      //   $(this).removeClass('special');
+      //   $(this).siblings().addClass('special');
+      // });
+      //========================================
+      // $('li').on('click', function () {
+      //   $(this).parent().addClass('special');
+      // });
+      //========================================
+      // $('li').on('click', function () {
+      //   $(this).closest('.list').addClass('special'); // same result.
+      // });
+      //========================================
+      // $('.list').on('click', function () {
+      //   $(this).find('li').addClass('special'); // same result again.
+      // });
+      //========================================
+      // $('.list').on('click', function () {
+      //   $(this).find('li').filter(':first').addClass('special');
+      // });
+      //========================================
+    //   $('.list').on('click', function () {
+    //     $(this).find('li').filter('.special').remove();
+    //   });
+    // });
+    //========================================
+      // $('.list').on('click', function () {
+      //   $(this).find('.special').remove(); // Same result -- two removed.
+      // }); // same as $('.special').remove(); but faster.
+    //========================================
+      // $('li').on('click', function () {
+      //   $(this).hide();
+      //   if ( $(this).is('.special') ) {
+      //     console.log('".special" was hidden.');
+      //   }
+      // });
+      //========================================
+      // $('li').on('click', function () {
+      //   $(this).hide();
+      //   if ( !$(this).is('.special') ) { // video has wrong syntax.
+      //     console.log('Hid a not ".special".');
+      //   }
+      // });
+      // Note: Clicking on 'li' in sublist => click on 'li' of list. [li(3)]
+      //========================================
+      // $('.sublist li').on('click', function () {
+      //   $(this).hide(); // Now only the 'li' in sublist is hidden.
+      // });
+      //======================================== Do stuff to other li's:
+      clicked = false; // added to allow showing hidden li's in sublist.
+      $('li').on('click', function () {
+        var thisLi = $(this);
+        // Other stuff to all li's here.
+        clicked = !clicked;
+        if (thisLi.children(0).is('.sublist') && clicked) {
+              console.log('Clicked on li with a ".sublist" child ul.');
+              $('li').show();
+              clicked = false;        
+        } else 
+        if (thisLi.parent().is('.sublist')) {
+          thisLi.hide(); // hides li in sublist as in a previous example.
+          clicked = true;
+        } else {
+          clicked = false; // re-initialize: no sublist li involved in click.
+        }
+      });
+    });
+  </script>
+</body>
+</html>
