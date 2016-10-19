@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Note: Original code is in http://codepen.io/anon/pen/mJyQez -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>jQuery Tutorial 6 -- Image slider.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="jQueryTutorialsL6.css">
+    <style>
+      .special {
+        color: violet;
+      }
+    </style>
+    <script src=".\jquery-3.1.1.min.js"></script> 
+    <!-- <script src="myscripts.js"></script> -->
+    <script type="text/javascript" src="jQueryTutorialsL6.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="text-muted">jQuery Basic Slider</h1>
+      </div>
+      <div id="slider" class="slider">
+        <ul class="slides">
+          <li class="slide slide1">slide1 <img src="img1.jpg" alt="image1">
+          </li>
+          <li class="slide slide2">slide2 <img src="img2.jpg" alt="image2">
+          </li>
+          <li class="slide slide3">slide3 <img src="img3.jpg" alt="image3">
+          </li>
+          <li class="slide slide4">slide4 <img src="img4.jpg" alt="image4">
+          </li>
+          <li class="slide slide5">slide5 <img src="img5.jpg" alt="image5">
+          </li>
+          <li class="slide slide1">slide1 <img src="img6.jpg" alt="image6">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- In console:
+$("#slider .slides").animate({'margin-left': -720}, 1000)
+$("#slider .slides").animate({'margin-left': '-=720'}, 1000)
+
+
+ -->
