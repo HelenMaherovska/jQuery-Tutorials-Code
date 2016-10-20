@@ -6,7 +6,9 @@ Video uses a localhost server for db. He does not describe the setup at all.
 He refers in the notes to an online db: http://rest.learncode.academy/
 I used a user name of Mary and a collection of orders.
  http://rest.learncode.academy/api/mary/orders
-I have not been able to put data into it except for and id. 
+The PUT code added here adds orders to the collection. 
+I still have not been able to put data in with the other tools,
+ so there must be something about this db that is not working correctly. 
 */
 // 'use strict'; moved to fix linting errors.
 $(function() {
