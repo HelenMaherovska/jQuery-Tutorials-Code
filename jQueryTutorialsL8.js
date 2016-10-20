@@ -1,5 +1,5 @@
 /* RESTful API to use for practice!: http://rest.learncode.academy/ */
-// Note: Original code is in http://jsfiddle.net/EjZzs/15/
+
 /*
 See notes at end of this file.
 Video uses a localhost server for db. He does not describe the setup at all.
